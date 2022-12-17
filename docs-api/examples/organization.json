@@ -1,0 +1,16 @@
+{
+	"success": true,
+	"name": "Organizations",
+	"message": "Get organization by id successfully",
+	"result": {
+		"data": {
+			"id": 1,
+			"name": "Himpunan Mahasiswa Teknik Informatika",
+			"shortname": "HMIF",
+			"link_instagram": "https://instagram.com/hmifunikom",
+			"link_website": "https://hmif.unikom.ac.id",
+			"created_at": "2022-11-04 10:07:49",
+			"updated_at": "2022-11-04 10:07:49"
+		}
+	}
+}

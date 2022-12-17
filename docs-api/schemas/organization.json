@@ -1,0 +1,12 @@
+{
+	"type": "object",
+	"properties": {
+		"id": "integer",
+		"name": "string",
+		"shortname": "string",
+		"link_instagram": "string",
+		"link_website": "string",
+		"created_at": "string",
+		"updated_at": "string"
+	}
+}

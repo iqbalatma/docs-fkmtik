@@ -1,57 +1,67 @@
 {
-  "openapi" : "3.0.0",
-  "info" : {
-    "title" : "Sample Application Flow OAuth2 Project",
-    "description" : "This is an example of using OAuth2 Application Flow in a specification to describe security to your API.",
-    "version" : "1.0.0"
-  },
-  "servers" : [ {
-    "url" : "https://virtserver.swaggerhub.com/iqbalatma/FKM/1.0.0",
-    "description" : "SwaggerHub API Auto Mocking"
-  } ],
-  "security" : [ {
-    "application" : [ "read", "write" ]
-  } ],
-  "paths" : {
-    "/example" : {
-      "get" : {
-        "summary" : "Server example operation",
-        "description" : "This is an example operation to show how security is applied to the call.",
-        "responses" : {
-          "200" : {
-            "description" : "OK"
-          }
-        }
-      }
-    },
-    "/ping" : {
-      "get" : {
-        "summary" : "Server heartbeat operation",
-        "description" : "This operation shows how to override the global security defined above, as we want to open it up for all users.",
-        "responses" : {
-          "200" : {
-            "description" : "OK"
-          }
-        },
-        "security" : [ ]
-      }
-    }
-  },
-  "components" : {
-    "schemas" : { },
-    "securitySchemes" : {
-      "application" : {
-        "type" : "oauth2",
-        "flows" : {
-          "clientCredentials" : {
-            "tokenUrl" : "http://example.com/oauth/token",
-            "scopes" : {
-              "write" : "allows modifying resources",
-              "read" : "allows reading resources"
-            }
-          }
-        }
-      }
-    }
-  }
+	"openapi": "3.0.0",
+	"info": {
+		"title": "Absensi Kongres FKMTIK",
+		"description": "Dokuemntasi aplikasi untuk absensi FKMTIK.",
+		"version": "1.0.0"
+	},
+	"servers": [
+		{
+			"url": "http://localhost:8000/api",
+			"description": ""
+		}
+	],
+	"security": [
+		{
+			"application": ["read", "write"]
+		}
+	],
+	"paths": {
+		"/organizations": {
+			"get": {
+				"summary": "Get organization by id",
+				"description": "This endpoint will return single data organization by id",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"$ref": "./examples/organization.json"
+									},
+									"properties": {
+										"$ref": "./schemas/organization.json#/properties"
+									}
+								}
+							}
+						}
+					}
+				},
+				"tags": ["organizations"]
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"Organization": {
+				"$ref": "./schemas/organization.json"
+			}
+		},
+		"securitySchemes": {
+			"application": {
+				"type": "oauth2",
+				"flows": {
+					"clientCredentials": {
+						"tokenUrl": "http://example.com/oauth/token",
+						"scopes": {
+							"write": "allows modifying resources",
+							"read": "allows reading resources"
+						}
+					}
+				}
+			}
+		}
+	}
 }
